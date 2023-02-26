@@ -2,7 +2,7 @@ import "./App.css";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { useState } from "react";
 import uuid from "react-uuid";
-import Cards from "./Components/Cards";
+import CardList from "./Components/CardList";
 
 function App() {
   // toDos variable with uuid
@@ -88,7 +88,7 @@ function App() {
           onDragEnd={(result) => onDragEnd(result, columns, setColumns)}
         >
           {Object.entries(columns).map(([id, column]) => {
-            return <Cards column={column} id={id} key={id} />;
+            return <CardList column={column} id={id} key={id} />;
           })}
         </DragDropContext>
       </div>

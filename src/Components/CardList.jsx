@@ -1,7 +1,7 @@
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import Card from "./Card";
 
-const Cards = (props) => {
+const CardList = (props) => {
   const { column, id } = props;
   return (
     <>
@@ -31,4 +31,4 @@ const Cards = (props) => {
   );
 };
 
-export default Cards;
+export default CardList;
