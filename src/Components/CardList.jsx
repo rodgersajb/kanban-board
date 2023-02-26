@@ -1,4 +1,4 @@
-import {  Droppable } from "react-beautiful-dnd";
+import {  Droppable, Draggae } from "react-beautiful-dnd";
 import Card from "./Card";
 
 const CardList = (props) => {
