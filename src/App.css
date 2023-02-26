@@ -1,42 +1,56 @@
+.react-draggable {
+  box-sizing: border-box;
+}
+
+/* Styles to ensure proper layout of droppables */
+.react-droppable {
+  box-sizing: border-box;
+}
+
+/* Styles to hide the original draggable element while dragging */
+.react-draggable--is-dragging {
+  opacity: 0;
+}
+
+/* Styles to ensure proper positioning of the dragging item */
+.react-draggable--is-dragging > * {
+  pointer-events: none;
+}
+
+/* Styles to show a visual indicator of where a draggable item can be dropped */
+.react-droppable--is-dragging-over {
+  background-color: #f0f0f0;
+}
+
+ul {
+  list-style: none;
+}
+ul:hover {
+  cursor: grab;
+}
+
+html,
+body,
 #root {
-  max-width: 1280px;
+  height: 100%;
+  width: 95%;
+  max-width: 1580px;
+}
+
+body {
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.flex-container {
+  display: flex;
+  gap: 5rem;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+ul {
+  height: 100%;
+  min-height: 400px;
+  width: 100%;
 }
