@@ -2,6 +2,7 @@ import "./App.css";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { useState } from "react";
 import uuid from "react-uuid";
+import Cards from "./Components/Cards";
 
 function App() {
   // toDos variable with uuid
@@ -89,61 +90,7 @@ function App() {
           onDragEnd={(result) => onDragEnd(result, columns, setColumns)}
         >
           {Object.entries(columns).map(([id, column]) => {
-            return (
-              <div className="ul-flex" key={id}>
-                <h2>{column.name}</h2>
-
-                <Droppable droppableId={id}>
-                  {(provided, snapshot) => {
-                    return (
-                      <ul
-                        {...provided.droppableProps}
-                        ref={provided.innerRef}
-                        style={{
-                          background: snapshot.isDraggingOver
-                            ? "#7aa095"
-                            : "#AFBC88",
-                        }}
-                      >
-                        {column.items.map((item, index) => {
-                          return (
-                            <Draggable
-                              key={item.id}
-                              draggableId={item.id}
-                              index={index}
-                            >
-                              {(provided, snapshot) => {
-                                return (
-                                  <li
-                                    ref={provided.innerRef}
-                                    {...provided.draggableProps}
-                                    {...provided.dragHandleProps}
-                                    style={{
-                                      userSelect: "none",
-                                      minHeight: "60px",
-                                      font: "24px",
-                                      backgroundColor: snapshot.isDragging
-                                        ? "#98C9A3 "
-                                        : "#BFD8BD",
-                                      color: "#77bfa3",
-
-                                      ...provided.draggableProps.style,
-                                    }}
-                                  >
-                                    {item.content}
-                                  </li>
-                                );
-                              }}
-                            </Draggable>
-                          );
-                        })}
-                        {provided.placeholder}
-                      </ul>
-                    );
-                  }}
-                </Droppable>
-              </div>
-            );
+            return <Cards column={column} id={id} key={id}/>;
           })}
         </DragDropContext>
       </div>
