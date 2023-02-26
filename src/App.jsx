@@ -32,11 +32,9 @@ function App() {
   };
   const [columns, setColumns] = useState(tasks);
   // Create three cards: To Do, In Progress, and Done.
-  // Display grid for the cards
+  // Display grid or flex for the cards
   //for Each card, have tasks displayed that can be moved around based on what card it applies to
   // Each card organized into components once dnd is working
-
-  // list taskTtems, blank for now
 
   const onDragEnd = (result, columns, setColumns) => {
     // if statement determines if a draggable item did not change indexes, do nothing
@@ -68,7 +66,7 @@ function App() {
       });
     } else {
       const column = columns[source.droppableId];
-      console.log(column, "column");
+
       const copiedItems = [...column.items];
       const removed = copiedItems.splice(source.index, 1)[0];
       copiedItems.splice(destination.index, 0, removed);
@@ -90,7 +88,7 @@ function App() {
           onDragEnd={(result) => onDragEnd(result, columns, setColumns)}
         >
           {Object.entries(columns).map(([id, column]) => {
-            return <Cards column={column} id={id} key={id}/>;
+            return <Cards column={column} id={id} key={id} />;
           })}
         </DragDropContext>
       </div>
