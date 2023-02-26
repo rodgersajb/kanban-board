@@ -1,10 +1,13 @@
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import { Draggable } from "react-beautiful-dnd";
 
 const Card = (props) => {
-
-    const {item, index} = props;
+  const { item, index } = props;
   return (
-    <Draggable key={props.item.id} draggableId={props.item.id} index={props.index}>
+    <Draggable
+      key={props.item.id}
+      draggableId={props.item.id}
+      index={props.index}
+    >
       {(provided, snapshot) => {
         return (
           <li

@@ -1,4 +1,4 @@
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import {  Droppable } from "react-beautiful-dnd";
 import Card from "./Card";
 
 const CardList = (props) => {
