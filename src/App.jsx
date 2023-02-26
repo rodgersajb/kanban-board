@@ -6,8 +6,11 @@ import uuid from "react-uuid";
 function App() {
   // toDos variable with uuid
   const toDos = [
-    { id: uuid(), content: "First Task" },
-    { id: uuid(), content: "SECOND tASK" },
+    { id: uuid(), content: "Work Out" },
+    { id: uuid(), content: "Cook/Order Dinner" },
+    { id: uuid(), content: "Throw on some Pink Floyd/Start Coding" },
+    { id: uuid(), content: "Walk the Dog" },
+    { id: uuid(), content: "Watch Netflix" },
   ];
 
   // tasks variable with uuid, name and reference to toDos variable
@@ -81,6 +84,7 @@ function App() {
 
   return (
     <>
+      <h1>Kanban Board</h1>
       <div className="flex-container">
         <DragDropContext
           onDragEnd={(result) => onDragEnd(result, columns, setColumns)}
@@ -98,7 +102,9 @@ function App() {
                         {...provided.droppableProps}
                         ref={provided.innerRef}
                         style={{
-                          background: snapshot.isDraggingOver ? "red" : "grey",
+                          background: snapshot.isDraggingOver
+                            ? "#7aa095"
+                            : "#AFBC88",
                         }}
                       >
                         {column.items.map((item, index) => {
@@ -118,12 +124,12 @@ function App() {
                                     style={{
                                       userSelect: "none",
                                       minHeight: "60px",
-                                      padding: 12,
-                                      margin: 12,
+                                      font: "24px",
                                       backgroundColor: snapshot.isDragging
-                                        ? "blue "
-                                        : "purple",
-                                      color: "white",
+                                        ? "#98C9A3 "
+                                        : "#BFD8BD",
+                                      color: "#77bfa3",
+
                                       ...provided.draggableProps.style,
                                     }}
                                   >
