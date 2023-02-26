@@ -38,7 +38,6 @@ function App() {
   // list taskTtems, blank for now
 
   const onDragEnd = (result, columns, setColumns) => {
-    console.log(result, "RESULT");
     // if statement determines if a draggable item did not change indexes, do nothing
     if (!result.destination) return;
 
@@ -90,9 +89,8 @@ function App() {
           onDragEnd={(result) => onDragEnd(result, columns, setColumns)}
         >
           {Object.entries(columns).map(([id, column]) => {
-            console.log(id, "ID");
             return (
-              <div className="ul-flex">
+              <div className="ul-flex" key={id}>
                 <h2>{column.name}</h2>
 
                 <Droppable droppableId={id}>
@@ -108,7 +106,6 @@ function App() {
                         }}
                       >
                         {column.items.map((item, index) => {
-                          console.log(item.id, "ITEM ID");
                           return (
                             <Draggable
                               key={item.id}
